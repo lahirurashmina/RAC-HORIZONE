@@ -1,0 +1,95 @@
+/* Calendar Modal Styles */
+.calendar-container {
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.calendar-header div {
+    font-size: 14px;
+    color: #666;
+    padding: 10px 0;
+}
+
+.calendar-grid {
+    border-top: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;
+}
+
+.calendar-day {
+    width: 14.28%;
+    height: 80px;
+    background: white;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    padding: 5px;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.calendar-day:hover {
+    background: #f1f3f5;
+}
+
+.calendar-day.empty {
+    background: #f8f9fa;
+    cursor: default;
+}
+
+.calendar-day.today {
+    background: #e7f5ff;
+}
+
+.calendar-day.today::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 6px;
+    height: 6px;
+    background: #4A90E2;
+    border-radius: 50%;
+}
+
+.calendar-day.booked {
+    background: #e3f2fd;
+}
+
+.day-badge {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.day-badge.active-booking {
+    background-color: #4A90E2;
+    /* Primary Blue */
+}
+
+.day-badge.completed-booking {
+    background-color: #10B981;
+    /* Green */
+}
+
+.day-badge.upcoming-booking {
+    background-color: #F97316;
+    /* Orange */
+}
+
+.calendar-day.has-event::before {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #333;
+}

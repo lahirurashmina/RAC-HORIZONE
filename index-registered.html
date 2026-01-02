@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Horizone Logo.png" type="image/png">
+    <title>HORIZONE - Car Rental</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/footer-style.css">
+    <link rel="stylesheet" href="./css/dark-mode.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="navbar-brand">
+                    <img src="Horizone Logo.png" alt="HORIZONE Logo" class="logo-small">
+                    <span class="brand-name">HORIZONE</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index-registered.html" class="nav-link active">Home</a></li>
+                    <li><a href="catalog.html" class="nav-link">Car Catalog</a></li>
+                    <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                    <div class="dropdown">
+                        <a href="#" class="user-profile dropdown-toggle text-decoration-none" id="profileDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="images/profile.jpg" alt="User" class="user-avatar">
+                            <span class="user-name">Lahiru Rash</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="dashboard.html"><i
+                                        class="fas fa-th-large me-2"></i>Dashboard</a></li>
+                            <li><a class="dropdown-item" href="settings.html"><i
+                                        class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger logout-btn" href="#"><i
+                                        class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Find Your Perfect Ride Today</h1>
+                    <div class="hero-buttons">
+                        <a href="catalog.html" class="btn btn-primary btn-browse">Browse Cars</a>
+                        <a href="#about" class="btn btn-outline-light btn-learn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Search Form -->
+    <section class="quick-search-section">
+        <div class="container">
+            <div class="quick-search-form">
+                <h3 class="search-title">Quick Search</h3>
+                <form class="search-form">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Pickup Location</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="Colombo, LK" readonly>
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Pickup Date</label>
+                            <input type="date" class="form-control" placeholder="mm/dd/yyyy">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Pickup Time</label>
+                            <input type="time" class="form-control" placeholder="--:--">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Return Date</label>
+                            <input type="date" class="form-control" placeholder="mm/dd/yyyy">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="differentLocation">
+                                    <label class="form-check-label" for="differentLocation">
+                                        Different return location
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="driverAge">
+                                    <label class="form-check-label" for="driverAge">
+                                        Driver aged 25-70
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-search">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cars Section -->
+    <section id="catalog" class="featured-cars-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Featured Cars</h2>
+                    <p class="section-subtitle">Discover our most popular vehicles</p>
+                </div>
+                <a href="catalog.html" class="view-all-link">
+                    View All Cars <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="row g-4">
+                <!-- Car Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="car-card">
+                        <div class="car-image-wrapper">
+                            <img src="images/car1.jpg" alt="BMW 5 Series" class="car-image">
+                            <span class="car-tag tag-premium">Premium</span>
+                        </div>
+                        <div class="car-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="car-model">BMW 5 Series</h3>
+                        <p class="car-type">Luxury Sedan</p>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-cog"></i> Auto</span>
+                            <span><i class="fas fa-suitcase"></i> 2 Bags</span>
+                        </div>
+                        <div class="car-footer">
+                            <span class="car-price">$89 <small>/day</small></span>
+                            <a href="car-details.html" class="btn btn-primary btn-book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Car Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="car-card">
+                        <div class="car-image-wrapper">
+                            <img src="images/car2.jpg" alt="Tesla Model 3" class="car-image">
+                            <span class="car-tag tag-electric">Electric</span>
+                        </div>
+                        <div class="car-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="car-model">Tesla Model 3</h3>
+                        <p class="car-type">Electric Sedan</p>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-bolt"></i> Electric</span>
+                            <span><i class="fas fa-suitcase"></i> 2 Bags</span>
+                        </div>
+                        <div class="car-footer">
+                            <span class="car-price">$95 <small>/day</small></span>
+                            <a href="car-details.html?id=tesla-model-s" class="btn btn-primary btn-book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Car Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="car-card">
+                        <div class="car-image-wrapper">
+                            <img src="images/car3.jpg" alt="Mercedes GLE" class="car-image">
+                            <span class="car-tag tag-suv">SUV</span>
+                        </div>
+                        <div class="car-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="car-model">Mercedes GLE</h3>
+                        <p class="car-type">Luxury SUV</p>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 7 Seats</span>
+                            <span><i class="fas fa-cog"></i> Auto</span>
+                            <span><i class="fas fa-suitcase"></i> 4 Bags</span>
+                        </div>
+                        <div class="car-footer">
+                            <span class="car-price">$120 <small>/day</small></span>
+                            <a href="car-details.html?id=honda-odyssey" class="btn btn-primary btn-book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Car Card 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="car-card">
+                        <div class="car-image-wrapper">
+                            <img src="images/car4.jpg" alt="Audi A4" class="car-image">
+                            <span class="car-tag tag-premium">Premium</span>
+                        </div>
+                        <div class="car-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="car-model">Audi A4</h3>
+                        <p class="car-type">Premium Sedan</p>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-cog"></i> Auto</span>
+                            <span><i class="fas fa-suitcase"></i> 2 Bags</span>
+                        </div>
+                        <div class="car-footer">
+                            <span class="car-price">$85 <small>/day</small></span>
+                            <a href="car-details.html?id=audi-a4" class="btn btn-primary btn-book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Car Card 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="car-card">
+                        <div class="car-image-wrapper">
+                            <img src="images/car5.jpg" alt="Honda Civic" class="car-image">
+                            <span class="car-tag tag-economy">Economy</span>
+                        </div>
+                        <div class="car-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <h3 class="car-model">Honda Civic</h3>
+                        <p class="car-type">Economy Sedan</p>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-cog"></i> Auto</span>
+                            <span><i class="fas fa-suitcase"></i> 2 Bags</span>
+                        </div>
+                        <div class="car-footer">
+                            <span class="car-price">$45 <small>/day</small></span>
+                            <a href="car-details.html?id=toyota-camry" class="btn btn-primary btn-book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Car Card 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="car-card">
+                        <div class="car-image-wrapper">
+                            <img src="images/car5.jpg" alt="Porsche 911" class="car-image">
+                            <span class="car-tag tag-sports">Sports</span>
+                        </div>
+                        <div class="car-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="car-model">Porsche 911</h3>
+                        <p class="car-type">Sports Car</p>
+                        <div class="car-features">
+                            <span><i class="fas fa-users"></i> 2 Seats</span>
+                            <span><i class="fas fa-cog"></i> Auto</span>
+                            <span><i class="fas fa-suitcase"></i> 1 Bag</span>
+                        </div>
+                        <div class="car-footer">
+                            <span class="car-price">$250 <small>/day</small></span>
+                            <a href="car-details.html?id=porsche-911" class="btn btn-primary btn-book">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manage Your Bookings Section -->
+    <section id="bookings" class="bookings-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Manage Your Bookings</h2>
+                    <p class="section-subtitle">Track and manage all your reservations in one place</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Active Booking -->
+                <div class="col-md-6">
+                    <div class="booking-card">
+                        <div class="booking-header">
+                            <span class="booking-status status-active">Active</span>
+                            <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="booking-content">
+                            <div class="booking-info">
+                                <h3 class="booking-car">BMW 5 Series</h3>
+                                <p class="booking-id">#BK-2847</p>
+                            </div>
+                            <img src="images/car1.jpg" alt="BMW 5 Series" class="booking-car-image">
+                            <div class="booking-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Dec 15, 2024 - Dec 20, 2024</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Halawatha, West, LK</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span class="booking-total">$445.00</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-view-details">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Upcoming Booking -->
+                <div class="col-md-6">
+                    <div class="booking-card">
+                        <div class="booking-header">
+                            <span class="booking-status status-upcoming">Upcoming</span>
+                            <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="booking-content">
+                            <div class="booking-info">
+                                <h3 class="booking-car">Tesla Model 3</h3>
+                                <p class="booking-id">#BK-2891</p>
+                            </div>
+                            <img src="images/car2.jpg" alt="Tesla Model 3" class="booking-car-image">
+                            <div class="booking-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Dec 28, 2024 - Jan 2, 2025</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Galle, South, LK</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span class="booking-total">$570.00</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-view-details">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="dashboard.html" class="btn btn-dark btn-view-all">View All Bookings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Horizone Section -->
+    <section id="about" class="why-choose-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose <span class="brand-red">Horizone</span></h2>
+            <p class="section-subtitle">Experience the best car rental service</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                    <!-- Brand Section -->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <div class="footer-brand">
+                            <span class="brand-name">HORIZONE</span>
+                        </div>
+                        <p class="footer-text">
+                            Experience the freedom of the road with our premium car rental services.
+                            Reliable, affordable, and luxurious.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="catalog.html">Car Catalog</a></li>
+                            <li><a href="my-bookings.html">My Bookings</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                        <h4 class="footer-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="footer-title">Subscribe</h4>
+                        <p class="footer-text">Subscribe to our newsletter for the latest updates and offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your Email" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright-text">&copy; 2025 HORIZONE. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="payment-methods">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content logout-modal-content">
+                <div class="modal-body text-center p-4">
+                    <div class="logout-icon-wrapper mb-3">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <h4 class="logout-title mb-2">Logout</h4>
+                    <p class="logout-text mb-4">Are you sure you want to logout?</p>
+                    <div class="d-flex justify-content-center gap-3 align-items-center">
+                        <button type="button" class="btn btn-text text-danger fw-bold"
+                            id="confirmLogoutBtn">Logout</button>
+                        <button type="button" class="btn btn-primary px-4 rounded-pill"
+                            data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/car-data.js"></script>
+    <script src="./js/profile-display.js"></script>
+    <script src="./js/dark-mode.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

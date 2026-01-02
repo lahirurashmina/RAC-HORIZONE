@@ -1,0 +1,228 @@
+/* Premium Footer Styles - Based on Design Image */
+.main-footer {
+    background: #0B111D;
+    /* Darker background from image */
+    color: #e5e7eb;
+    margin-top: 80px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.footer-content {
+    padding: 60px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-brand .brand-name {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.footer-text {
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-size: 15px;
+    max-width: 320px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link:hover {
+    background: #4A90E2;
+    transform: translateY(-5px);
+    color: white;
+}
+
+.footer-title {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 35px;
+    height: 2px;
+    background: #4A90E2;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.footer-links a:hover {
+    color: #4A90E2;
+    padding-left: 5px;
+}
+
+.subscribe-description {
+    color: #9ca3af;
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0;
+    margin-top: 20px;
+    max-width: 400px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    color: white;
+    outline: none;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.newsletter-input:focus {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(74, 144, 226, 0.5);
+}
+
+.newsletter-btn {
+    padding: 0 22px;
+    background: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-btn:hover {
+    background: #357ABD;
+}
+
+.newsletter-btn i {
+    font-size: 18px;
+}
+
+.footer-bottom {
+    padding: 30px 0;
+    background: #080C14;
+}
+
+.copyright-text {
+    color: #6b7280;
+    margin: 0;
+    font-size: 14px;
+}
+
+.payment-methods {
+    color: #6b7280;
+    font-size: 26px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.payment-methods i {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.payment-methods i:hover {
+    opacity: 1;
+}
+
+@media (max-width: 991px) {
+    .footer-content {
+        padding: 40px 0;
+    }
+
+    .footer-title {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-methods {
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    .footer-brand,
+    .footer-links,
+    .newsletter-form {
+        text-align: left;
+    }
+}
+
+/* Admin Login Button */
+.btn-admin-login {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    background: transparent;
+    margin-top: 20px;
+}
+
+.btn-admin-login:hover {
+    border-color: #4A90E2;
+    color: #4A90E2;
+    background: rgba(74, 144, 226, 0.05);
+}
+
+.btn-admin-login i {
+    margin-right: 8px;
+    font-size: 14px;
+}

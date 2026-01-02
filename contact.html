@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Horizone Logo.png" type="image/png">
+    <title>Contact Us - HORIZONE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/contact-style.css">
+    <link rel="stylesheet" href="./css/footer-style.css">
+    <link rel="stylesheet" href="./css/dark-mode.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="navbar-brand">
+                    <img src="Horizone Logo.png" alt="HORIZONE Logo" class="logo-small">
+                    <span class="brand-name">HORIZONE</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="catalog.html" class="nav-link">Car Catalog</a></li>
+                    <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                    <div class="dropdown">
+                        <a href="#" class="user-profile dropdown-toggle text-decoration-none" id="profileDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="images/profile.jpg" alt="User" class="user-avatar">
+                            <span class="user-name">Lahiru Rash</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="dashboard.html"><i
+                                        class="fas fa-th-large me-2"></i>Dashboard</a></li>
+                            <li><a class="dropdown-item" href="settings.html"><i
+                                        class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger logout-btn" href="#"><i
+                                        class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Us Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="hero-title">Contact Us</h1>
+            <p class="hero-subtitle">Get in touch with our team for any questions about car rentals, bookings, or
+                support. We're here to help make your journey smooth.</p>
+        </div>
+    </section>
+
+    <!-- Contact Information & Form Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Left Column: Get In Touch -->
+                <div class="col-lg-5">
+                    <h2 class="section-heading">Get In Touch</h2>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Our Location</h4>
+                                <p>123 Auto Street, Downtown District<br>New York, NY 10001</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone Number</h4>
+                                <p>+1 (555) 123-4567<br><span class="availability">Available 24/7</span></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Address</h4>
+                                <p>info@horizone.com<br>support@horizone.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 8:00 PM<br>Weekend: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="col-lg-7">
+                    <h2 class="section-heading">Send us a Message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select class="form-select" id="subject" required>
+                                <option value="general" selected>General Inquiry</option>
+                                <option value="booking">Booking Question</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="6"
+                                placeholder="Tell us how we can help you...." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-send-message">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Horizone Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title-center">About Horizone</h2>
+            <p class="section-subtitle-center">Your trusted partner for premium car rental services with over a decade
+                of excellence in customer satisfaction and reliable transportation solutions.</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="story-heading">Our Story</h2>
+                    <p class="story-text">Founded in 2025, Horizone began with a simple mission: to make premium car
+                        rental accessible to everyone. What started as a small fleet of carefully selected vehicles has
+                        grown into one of the most trusted names in the car rental industry.</p>
+                    <p class="story-text">Over the years, we've expanded our services, enhanced our fleet, and built
+                        lasting relationships with thousands of satisfied customers. Our commitment to quality, safety,
+                        and exceptional customer service remains at the heart of everything we do.</p>
+                    <p class="story-text">We believe that everyone deserves access to reliable, well-maintained vehicles
+                        for their journeys, whether it's a weekend getaway, a business trip, or a family vacation. At
+                        Horizone, we're not just renting cars—we're enabling experiences and creating memories.</p>
+
+                    <div class="metrics">
+                        <div class="metric-item">
+                            <h3 class="metric-number">10K+</h3>
+                            <p class="metric-label">Happy Customers</p>
+                        </div>
+                        <div class="metric-item">
+                            <h3 class="metric-number">500+</h3>
+                            <p class="metric-label">Vehicles Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/build.jpg" alt="Car Showroom" class="story-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Safety First</h3>
+                        <p class="feature-text">All our vehicles undergo rigorous safety inspections and regular
+                            maintenance to ensure your peace of mind on every journey.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="feature-title">Customer Care</h3>
+                        <p class="feature-text">Our dedicated support team is available 24/7 to assist you with any
+                            questions or concerns throughout your rental experience.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="feature-title">Eco-Friendly</h3>
+                        <p class="feature-text">We're committed to sustainability with a growing fleet of hybrid and
+                            electric vehicles to reduce environmental impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title-center">Meet Our Team</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <img src="images/Per1.jpg" alt="John Smith" class="team-avatar">
+                        <h3 class="team-name">Lahiru Rash</h3>
+                        <p class="team-role">CEO & Founder</p>
+                        <p class="team-description">Leading Horizone with vision and dedication to customer excellence.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <img src="images/Per2.jpg" alt="Sarah Johnson" class="team-avatar">
+                        <h3 class="team-name">Sarah Johnson</h3>
+                        <p class="team-role">Operations Manager</p>
+                        <p class="team-description">Ensuring smooth operations and exceptional service delivery daily.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <img src="images/Per3.jpg" alt="Mike Chen" class="team-avatar">
+                        <h3 class="team-name">Mike Chen</h3>
+                        <p class="team-role">Fleet Manager</p>
+                        <p class="team-description">Maintaining our diverse fleet to the highest safety and quality
+                            standards.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <img src="images/Per4.jpg" alt="Emily Davis" class="team-avatar">
+                        <h3 class="team-name">Emily Davis</h3>
+                        <p class="team-role">Customer Success</p>
+                        <p class="team-description">Dedicated to ensuring every customer has an outstanding rental
+                            experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Start Your Journey?</h2>
+            <p class="cta-subtitle">Book your perfect car today and experience the Horizone difference with our premium
+                vehicles and exceptional service.</p>
+            <div class="cta-buttons">
+                <a href="catalog.html" class="btn btn-primary btn-cta-primary">Book Now</a>
+                <a href="catalog.html" class="btn btn-outline-light btn-cta-secondary">View Fleet</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                    <!-- Brand Section -->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <div class="footer-brand">
+                            <span class="brand-name">HORIZONE</span>
+                        </div>
+                        <p class="footer-text">
+                            Experience the freedom of the road with our premium car rental services.
+                            Reliable, affordable, and luxurious.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="catalog.html">Car Catalog</a></li>
+                            <li><a href="my-bookings.html">My Bookings</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                        <h4 class="footer-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="footer-title">Subscribe</h4>
+                        <p class="footer-text">Subscribe to our newsletter for the latest updates and offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your Email" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright-text">&copy; 2025 HORIZONE. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="payment-methods">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content logout-modal-content">
+                <div class="modal-body text-center p-4">
+                    <div class="logout-icon-wrapper mb-3">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <h4 class="logout-title mb-2">Logout</h4>
+                    <p class="logout-text mb-4">Are you sure you want to logout?</p>
+                    <div class="d-flex justify-content-center gap-3 align-items-center">
+                        <button type="button" class="btn btn-text text-danger fw-bold"
+                            id="confirmLogoutBtn">Logout</button>
+                        <button type="button" class="btn btn-primary px-4 rounded-pill"
+                            data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/profile-display.js"></script>
+    <script src="./js/dark-mode.js"></script>
+    <script src="./js/contact-script.js"></script>
+</body>
+
+</html>

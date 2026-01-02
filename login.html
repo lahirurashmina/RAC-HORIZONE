@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Horizone Logo.png" type="image/png">
+    <title>Login - HORIZONE</title>
+    <link rel="stylesheet" href="./css/simple-style.css">
+    <link rel="stylesheet" href="./css/status-modal.css">
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="content">
+            <img src="Horizone Logo.png" alt="HORIZONE Logo" class="logo-img">
+            <header>Login</header>
+            <form method="post" action="#" id="loginForm">
+                <div class="field">
+                    <input type="email" name="email" id="email" required placeholder="Email">
+                </div>
+                <div class="field">
+                    <input type="password" name="password" id="password" class="pass-key" required
+                        placeholder="Password">
+                    <span class="show">SHOW</span>
+                </div>
+                <div class="field">
+                    <input type="submit" value="LOGIN">
+                </div>
+            </form>
+            <div class="signup">
+                <span>Don't have an account? </span>
+                <a href="signup.html">Sign up for free</a>
+            </div>
+            <a href="index.html" class="back-to-home">
+                <i class="fas fa-arrow-left"></i> Back to Horizone
+            </a>
+        </div>
+    </div>
+    <script src="./js/auth.js"></script>
+    <script src="./js/status-modal.js"></script>
+    <script src="./js/login-script.js"></script>
+</body>
+
+</html>

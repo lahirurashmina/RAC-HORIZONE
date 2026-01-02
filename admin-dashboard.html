@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Horizone Logo.png" type="image/png">
+    <title>Admin Dashboard - HORIZONE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/admin-dashboard-style.css">
+    <link rel="stylesheet" href="./css/status-modal.css">
+    <link rel="stylesheet" href="./css/dark-mode.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="Horizone Logo.png" alt="HORIZONE Logo" class="sidebar-logo">
+                    <span class="brand-name-sidebar">HORIZONE</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="admin-dashboard.html" class="nav-item active">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="adminLogoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Log Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1 class="page-title">Dashboard Overview</h1>
+                    <p class="welcome-message" id="adminWelcomeText">Welcome back, Admin</p>
+                </div>
+                <div class="header-right">
+
+                    <div class="user-profile-header">
+                        <img src="images/profile.jpg" alt="User" class="user-avatar-header">
+                        <div class="user-info-header">
+                            <div class="user-name-header" id="adminDisplayName">John Smith</div>
+                            <div class="user-role-header">Administrator</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Management Section -->
+            <div class="management-section">
+                <!-- Tabs -->
+                <div class="inventory-tabs">
+                    <button class="tab-btn active" data-tab="summary">Summary</button>
+                    <button class="tab-btn" data-tab="vehicles">Vehicles</button>
+                    <button class="tab-btn" data-tab="bookings">Bookings</button>
+                    <button class="tab-btn" data-tab="customers">Customers</button>
+                    <button class="tab-btn" data-tab="reports">Reports</button>
+                    <button class="tab-btn" data-tab="settings">Settings</button>
+                </div>
+
+                <!-- Summary Tab -->
+                <div class="tab-content active" id="summary-tab">
+                    <!-- Summary Cards moved inside -->
+                    <div class="summary-cards mb-4">
+                        <div class="summary-card">
+                            <div class="card-icon car-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-label">Total Vehicles</div>
+                                <div class="card-value" id="statTotalVehicles">0</div>
+
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-icon booking-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-label">Active Bookings</div>
+                                <div class="card-value" id="statActiveBookings">0</div>
+
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-icon revenue-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-label">Total Revenue</div>
+                                <div class="card-value" id="statTotalRevenue">$0</div>
+
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-icon available-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-label">Available Vehicles</div>
+                                <div class="card-value" id="statAvailableVehicles">0</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="management-frame p-4">
+                        <h3 class="subsection-title mb-4">Fleet Status Distribution</h3>
+                        <div class="chart-container">
+                            <div class="pie-chart-wrapper">
+                                <svg class="pie-chart" viewBox="0 0 200 200">
+                                    <circle class="pie-segment available-segment" cx="100" cy="100" r="80"
+                                        stroke-dasharray="297.5 502.4" stroke-dashoffset="0" />
+                                    <circle class="pie-segment rented-segment" cx="100" cy="100" r="80"
+                                        stroke-dasharray="167.3 502.4" stroke-dashoffset="-297.5" />
+                                    <circle class="pie-segment maintenance-segment" cx="100" cy="100" r="80"
+                                        stroke-dasharray="22.6 502.4" stroke-dashoffset="-464.8" />
+                                    <circle class="pie-segment outofservice-segment" cx="100" cy="100" r="80"
+                                        stroke-dasharray="15.1 502.4" stroke-dashoffset="-487.4" />
+                                </svg>
+                                <div class="pie-center">
+                                    <div class="pie-total" id="pieTotal">0</div>
+                                    <div class="pie-label">Total</div>
+                                </div>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color available"></span>
+                                    <span class="legend-label">Available</span>
+                                    <span class="legend-percentage" id="percAvailable">0%</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color rented"></span>
+                                    <span class="legend-label">Rented</span>
+                                    <span class="legend-percentage" id="percRented">0%</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color maintenance"></span>
+                                    <span class="legend-label">Maintenance</span>
+                                    <span class="legend-percentage" id="percMaintenance">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicles Tab -->
+                <div class="tab-content" id="vehicles-tab">
+                    <div class="management-frame p-4">
+                        <div class="section-header">
+                            <h2 class="section-title">Vehicle Management</h2>
+                            <button class="btn btn-primary" onclick="openVehicleModal('add')">
+                                <i class="fas fa-plus"></i> Add Vehicle
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Model</th>
+                                        <th>Type</th>
+                                        <th>Price/Day</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vehicleTableBody">
+                                    <!-- Data will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Tab -->
+                <div class="tab-content" id="bookings-tab">
+                    <div class="management-frame p-4">
+                        <div class="section-header">
+                            <h2 class="section-title">Booking Management</h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Customer</th>
+                                        <th>Vehicle</th>
+                                        <th>Dates</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookingTableBody">
+                                    <!-- Data will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customers Tab -->
+                <div class="tab-content" id="customers-tab">
+                    <div class="management-frame p-4">
+                        <div class="section-header">
+                            <h2 class="section-title">Customer Management</h2>
+                            <button class="btn btn-primary" onclick="openCustomerModal()">
+                                <i class="fas fa-plus"></i> Add Customer
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Joined</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customerTableBody">
+                                    <!-- Data will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reports Tab -->
+                <div class="tab-content" id="reports-tab">
+                    <div class="management-frame p-4">
+                        <div class="section-header">
+                            <h2 class="section-title">Reports & Analytics</h2>
+                        </div>
+                        <div class="text-center py-5">
+                            <i class="fas fa-chart-line fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Analytics and reporting features are being prepared.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div class="tab-content" id="settings-tab">
+                    <div class="management-frame p-4">
+                        <div class="section-header">
+                            <h2 class="section-title">System Settings</h2>
+                        </div>
+                        <div class="text-center py-5">
+                            <i class="fas fa-cogs fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">General system and profile settings go here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Vehicle Modal -->
+            <div class="modal fade" id="vehicleModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="vehicleModalTitle">Add Vehicle</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <form id="vehicleForm">
+                            <div class="modal-body">
+                                <input type="hidden" id="v_id" name="vehicleId">
+                                <input type="hidden" id="v_action" name="action" value="add">
+                                <div class="mb-3">
+                                    <label class="form-label">Model</label>
+                                    <input type="text" class="form-control" name="model" id="v_model" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Type</label>
+                                    <input type="text" class="form-control" name="type" id="v_type" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Price Per Day</label>
+                                    <input type="number" step="0.01" class="form-control" name="price" id="v_price"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Capacity</label>
+                                    <input type="number" class="form-control" name="capacity" id="v_capacity" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Vehicle Image</label>
+                                    <input type="file" class="form-control" name="v_image" id="v_image_file"
+                                        accept="image/*">
+                                    <div class="form-text">Leave blank to keep existing image if editing.</div>
+                                </div>
+                                <div class="mb-3" id="availableCheckGroup" style="display:none;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="available"
+                                            id="v_available" value="1" checked>
+                                        <label class="form-check-label">Available</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Vehicle</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Modal -->
+            <div class="modal fade" id="customerModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Customer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <form id="customerForm">
+                            <div class="modal-body">
+                                <input type="hidden" name="action" value="add">
+                                <div class="mb-3">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Phone</label>
+                                    <input type="text" class="form-control" name="phone">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Gender</label>
+                                    <select class="form-select" name="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Temporary Password</label>
+                                    <input type="text" class="form-control" name="password" value="password123">
+                                    <div class="form-text">Customer can change this later.</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Add Customer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/status-modal.js"></script>
+    <script src="./js/admin-dashboard-script.js"></script>
+    <script src="./js/dark-mode.js"></script>
+</body>
+
+</html>

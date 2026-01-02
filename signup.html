@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Horizone Logo.png" type="image/png">
+    <title>Sign Up - HORIZONE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/simple-style.css">
+    <link rel="stylesheet" href="./css/status-modal.css">
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="content signup-content">
+            <img src="Horizone Logo.png" alt="HORIZONE Logo" class="logo-img">
+            <header>Sign Up</header>
+
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <button type="button" class="social-btn google-btn" id="googleSignup">
+                    <i class="fab fa-google"></i>
+                    <span>Sign up with Google</span>
+                </button>
+            </div>
+
+            <div class="divider">
+                <span>Or register with email</span>
+            </div>
+
+            <form method="post" action="#" id="signupForm" enctype="multipart/form-data">
+                <div class="field profile-photo-field">
+                    <label for="profilePhoto" class="photo-label">
+                        <i class="fas fa-camera"></i>
+                        <span id="photoText">Upload Profile Photo</span>
+                        <input type="file" name="profilePhoto" id="profilePhoto" accept="image/*"
+                            style="display: none;">
+                    </label>
+                    <div id="photoPreview" class="photo-preview"></div>
+                </div>
+
+                <div class="field">
+                    <input type="text" name="firstName" id="firstName" required placeholder="First Name">
+                </div>
+
+                <div class="field">
+                    <input type="text" name="lastName" id="lastName" required placeholder="Last Name">
+                </div>
+
+                <div class="field">
+                    <input type="text" name="address" id="address" required placeholder="Address">
+                </div>
+
+                <div class="field">
+                    <input type="date" name="dateOfBirth" id="dateOfBirth" required placeholder="Date of Birth">
+                </div>
+
+                <div class="field gender-field">
+                    <label class="gender-label">Gender</label>
+                    <div class="gender-options">
+                        <label class="radio-label">
+                            Male &nbsp; <input type="radio" name="gender" value="male" required>
+                        </label>
+                        <label class="radio-label">
+                            Female &nbsp; <input type="radio" name="gender" value="female" required>
+                        </label>
+                        <label class="radio-label">
+                            Other &nbsp; <input type="radio" name="gender" value="other" required>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <input type="email" name="email" id="email" required placeholder="Email">
+                </div>
+
+                <div class="field">
+                    <input type="tel" name="phone" id="phone" required placeholder="Phone Number">
+                </div>
+
+                <div class="field">
+                    <input type="password" name="password" id="password" class="pass-key" required
+                        placeholder="Password">
+                    <span class="show">SHOW</span>
+                </div>
+
+                <div class="field">
+                    <input type="date" name="createdDate" id="createdDate" readonly placeholder="Created Date">
+                </div>
+
+                <div class="field">
+                    <input type="submit" value="REGISTER" id="registerBtn">
+                </div>
+            </form>
+            <div class="signup">
+                <span>Already have an account? </span>
+                <a href="login.html">Login</a>
+            </div>
+            <a href="index.html" class="back-to-home">
+                <i class="fas fa-arrow-left"></i> Back to Horizone
+            </a>
+        </div>
+    </div>
+    <script src="./js/auth.js"></script>
+    <script src="./js/status-modal.js"></script>
+    <script src="./js/signup-script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Update Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Profile Update Test</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <strong>Test Instructions:</strong>
+                    <ol>
+                        <li>Make sure you're logged in first</li>
+                        <li>Fill in the form below</li>
+                        <li>Click "Test Update"</li>
+                        <li>Check console (F12) for results</li>
+                    </ol>
+                </div>
+
+                <form id="testForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" value="Demon" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" value="LR" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" value="demon@gmail.com" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" value="Las Vegas" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="dateOfBirth" value="2000-04-02" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Gender</label>
+                            <select class="form-control" id="gender" required>
+                                <option value="male" selected>Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Password (optional)</label>
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Leave blank to keep current">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Test Update</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="result" class="mt-3"></div>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h4>Current User Session</h4>
+            </div>
+            <div class="card-body">
+                <pre id="userSession">Loading...</pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/auth.js"></script>
+    <script>
+        // Display current user session
+        document.addEventListener('DOMContentLoaded', function () {
+            const userSessionEl = document.getElementById('userSession');
+
+            if (typeof Auth !== 'undefined' && Auth.isLoggedIn()) {
+                const user = Auth.getCurrentUser();
+                userSessionEl.textContent = JSON.stringify(user, null, 2);
+            } else {
+                userSessionEl.textContent = 'Not logged in. Please log in first at login.html';
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('testForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const resultEl = document.getElementById('result');
+            resultEl.innerHTML = '<div class="alert alert-info">Sending request...</div>';
+
+            // Get current user
+            if (typeof Auth === 'undefined' || !Auth.isLoggedIn()) {
+                resultEl.innerHTML = '<div class="alert alert-danger">Error: Not logged in!</div>';
+                return;
+            }
+
+            const currentUser = Auth.getCurrentUser();
+            console.log('Current User:', currentUser);
+
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('customerId', currentUser.customerId);
+            formData.append('firstName', document.getElementById('firstName').value);
+            formData.append('lastName', document.getElementById('lastName').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('address', document.getElementById('address').value);
+            formData.append('dateOfBirth', document.getElementById('dateOfBirth').value);
+            formData.append('gender', document.getElementById('gender').value);
+            formData.append('phone', currentUser.phone || '');
+
+            const password = document.getElementById('password').value;
+            if (password) {
+                formData.append('password', password);
+            }
+
+            console.log('Sending data:', {
+                customerId: currentUser.customerId,
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                address: document.getElementById('address').value,
+                dateOfBirth: document.getElementById('dateOfBirth').value,
+                gender: document.getElementById('gender').value,
+                phone: currentUser.phone || '',
+                password: password ? '***' : '(not changed)'
+            });
+
+            try {
+                const response = await fetch('./api/update-profile.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                console.log('Response status:', response.status);
+                const result = await response.json();
+                console.log('Response data:', result);
+
+                if (result.success) {
+                    resultEl.innerHTML = `
+                        <div class="alert alert-success">
+                            <strong>Success!</strong><br>
+                            ${result.message}<br>
+                            <pre>${JSON.stringify(result.customer, null, 2)}</pre>
+                        </div>
+                    `;
+                } else {
+                    resultEl.innerHTML = `
+                        <div class="alert alert-danger">
+                            <strong>Error!</strong><br>
+                            ${result.message}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                resultEl.innerHTML = `
+                    <div class="alert alert-danger">
+                        <strong>Network Error!</strong><br>
+                        ${error.message}<br>
+                        Check console for details.
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+
+</html>

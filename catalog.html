@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Horizone Logo.png" type="image/png">
+    <title>Car Catalog - HORIZONE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/catalog-style.css">
+    <link rel="stylesheet" href="./css/custom-alerts.css">
+    <link rel="stylesheet" href="./css/footer-style.css">
+    <link rel="stylesheet" href="./css/dark-mode.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="navbar-brand">
+                    <img src="Horizone Logo.png" alt="HORIZONE Logo" class="logo-small">
+                    <span class="brand-name">HORIZONE</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="catalog.html" class="nav-link active">Car Catalog</a></li>
+                    <li><a href="my-bookings.html" class="nav-link">My Bookings</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                    <div class="dropdown">
+                        <a href="#" class="user-profile dropdown-toggle text-decoration-none" id="profileDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="images/profile.jpg" alt="User" class="user-avatar">
+                            <span class="user-name">Lahiru Rash</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="dashboard.html"><i
+                                        class="fas fa-th-large me-2"></i>Dashboard</a></li>
+                            <li><a class="dropdown-item" href="settings.html"><i
+                                        class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger logout-btn" href="#"><i
+                                        class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-card">
+                <h2 class="search-title">Find Your Perfect Car</h2>
+                <form class="search-form">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <input type="text" class="form-control" placeholder="Enter pickup location">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-icon"><i class="fas fa-calendar"></i></span>
+                                <input type="date" class="form-control" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-icon"><i class="fas fa-calendar"></i></span>
+                                <input type="date" class="form-control" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-search-cars">
+                        <i class="fas fa-search"></i> Search Cars
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="catalog-section">
+        <div class="container">
+            <div class="row">
+                <!-- Filters Sidebar -->
+                <aside class="col-lg-3 filters-sidebar">
+                    <div class="filters-card">
+                        <h3 class="filters-title">Filters</h3>
+
+                        <!-- Price Range -->
+                        <div class="filter-group">
+                            <h4 class="filter-label">Price Range (per day)</h4>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="price" value="under50">
+                                    <span>Under $50</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="price" value="50-100">
+                                    <span>$50 - $100</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="price" value="100-200">
+                                    <span>$100 - $200</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="price" value="over200">
+                                    <span>Over $200</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Car Type -->
+                        <div class="filter-group">
+                            <h4 class="filter-label">Car Type</h4>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="type" value="economy">
+                                    <span>Economy</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="type" value="compact">
+                                    <span>Compact</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="type" value="suv">
+                                    <span>SUV</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="type" value="luxury">
+                                    <span>Luxury</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="type" value="van">
+                                    <span>Van</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="type" value="electric">
+                                    <span>Electric</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="type" value="sports">
+                                    <span>Sports</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="filter-group">
+                            <h4 class="filter-label">Features</h4>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="features" value="automatic">
+                                    <span>Automatic</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="features" value="ac">
+                                    <span>Air Conditioning</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="features" value="gps">
+                                    <span>GPS Navigation</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="features" value="bluetooth">
+                                    <span>Bluetooth</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Seats -->
+                        <div class="filter-group">
+                            <h4 class="filter-label">Seats</h4>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="seats" value="2">
+                                    <span>2 Seats</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="seats" value="4">
+                                    <span>4 Seats</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="seats" value="5">
+                                    <span>5+ Seats</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="seats" value="7">
+                                    <span>7+ Seats</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-secondary btn-clear-filters">Clear All Filters</button>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <main class="col-lg-9 catalog-content">
+                    <div class="catalog-header">
+                        <div>
+                            <h2 class="catalog-title">Available Cars</h2>
+                            <p class="catalog-count">248 vehicles found</p>
+                        </div>
+                        <div class="catalog-controls">
+                            <select class="form-select sort-select">
+                                <option>Sort by Price: Low to High</option>
+                                <option>Sort by Price: High to Low</option>
+                                <option>Sort by Rating</option>
+                                <option>Sort by Name</option>
+                            </select>
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="view-btn" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Car Grid -->
+                    <div class="cars-grid" id="carsGrid">
+                        <!-- Car Card 1 -->
+                        <a href="car-details.html?id=toyota-camry" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/car6.jpg" alt="Toyota Camry" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">Toyota Camry</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.8</span>
+                                    </div>
+                                    <p class="car-details">Economy • Automatic • 5 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Auto</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$45 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=toyota-camry'">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Car Card 2 -->
+                        <a href="car-details.html?id=honda-crv" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/car7.jpg" alt="Honda CR-V" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">Honda CR-V</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.7</span>
+                                    </div>
+                                    <p class="car-details">SUV • Automatic • 5 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Auto</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$68 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=honda-crv'">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Car Card 3 -->
+                        <a href="car-details.html?id=bmw-5-series" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/car1.jpg" alt="BMW 5 Series" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">BMW 5 Series</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                    <p class="car-details">Luxury • Automatic • 5 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Auto</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$115 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=bmw-5-series';">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Car Card 4 -->
+                        <a href="car-details.html?id=nissan-versa" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/car7.jpg" alt="Nissan Versa" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">Nissan Versa</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.5</span>
+                                    </div>
+                                    <p class="car-details">Compact • Manual • 5 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Manual</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$35 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=nissan-versa'">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Car Card 5 -->
+                        <a href="car-details.html?id=honda-odyssey" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/car3.jpg" alt="Honda Odyssey" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">Honda Odyssey</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.6</span>
+                                    </div>
+                                    <p class="car-details">Van • Automatic • 8 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Auto</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$85 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=honda-odyssey'">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Car Card 6 -->
+                        <a href="car-details.html?id=ford-explorer" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/stock.jpg" alt="Ford Explorer" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">Ford Explorer</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.7</span>
+                                    </div>
+                                    <p class="car-details">SUV • Automatic • 7 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Auto</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$95 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=ford-explorer'">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Car Card 7 -->
+                        <a href="car-details.html?id=tesla-model-s" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/car2.jpg" alt="Tesla Model S" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">Tesla Model S</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                    <p class="car-details">Electric • Automatic • 5 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-bolt"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Auto</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$145 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=tesla-model-s'">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Car Card 8 -->
+                        <a href="car-details.html?id=audi-a4" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/car4.jpg" alt="Audi A4" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">Audi A4</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.7</span>
+                                    </div>
+                                    <p class="car-details">Luxury • Automatic • 5 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Auto</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$95 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=audi-a4'">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Car Card 9 -->
+                        <a href="car-details.html?id=porsche-911" class="car-card-link">
+                            <div class="car-card">
+                                <img src="images/car5.jpg" alt="Porsche 911" class="car-image">
+                                <div class="car-info">
+                                    <h3 class="car-name">Porsche 911</h3>
+                                    <div class="car-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>5.0</span>
+                                    </div>
+                                    <p class="car-details">Sports • Automatic • 2 Seats</p>
+                                    <div class="car-features">
+                                        <span class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-suitcase"></i>
+                                        </span>
+                                        <span class="feature-icon">
+                                            <i class="fas fa-cog"></i>
+                                            <span class="feature-text">Auto</span>
+                                        </span>
+                                    </div>
+                                    <div class="car-footer">
+                                        <span class="car-price">$250 <small>/day</small></span>
+                                        <button class="btn btn-primary btn-book"
+                                            onclick="event.preventDefault(); window.location.href='car-details.html?id=porsche-911'">Book
+                                            Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-wrapper">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                <li class="page-item"><a class="page-link" href="#">12</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                    <!-- Brand Section -->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <div class="footer-brand">
+                            <span class="brand-name">HORIZONE</span>
+                        </div>
+                        <p class="footer-text">
+                            Experience the freedom of the road with our premium car rental services.
+                            Reliable, affordable, and luxurious.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="catalog.html">Car Catalog</a></li>
+                            <li><a href="my-bookings.html">My Bookings</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                        <h4 class="footer-title">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="footer-title">Subscribe</h4>
+                        <p class="footer-text">Subscribe to our newsletter for the latest updates and offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your Email" class="newsletter-input" required>
+                            <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright-text">&copy; 2025 HORIZONE. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="payment-methods">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content logout-modal-content">
+                <div class="modal-body text-center p-4">
+                    <div class="logout-icon-wrapper mb-3">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <h4 class="logout-title mb-2">Logout</h4>
+                    <p class="logout-text mb-4">Are you sure you want to logout?</p>
+                    <div class="d-flex justify-content-center gap-3 align-items-center">
+                        <button type="button" class="btn btn-text text-danger fw-bold"
+                            id="confirmLogoutBtn">Logout</button>
+                        <button type="button" class="btn btn-primary px-4 rounded-pill"
+                            data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/car-data.js"></script>
+    <script src="./js/profile-display.js"></script>
+    <script src="./js/dark-mode.js"></script>
+    <script src="./js/custom-alerts.js"></script>
+    <script src="./js/catalog-script.js"></script>
+</body>
+
+</html>

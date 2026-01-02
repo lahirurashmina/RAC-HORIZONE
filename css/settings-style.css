@@ -1,0 +1,220 @@
+/* Settings Page Styles */
+
+.settings-container {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+}
+
+.settings-header-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.back-arrow {
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 15px;
+    width: 300px;
+    color: #666;
+}
+
+.search-label {
+    font-size: 14px;
+}
+
+.search-icon {
+    font-size: 14px;
+}
+
+.settings-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.settings-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+    max-width: 600px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 25px 0;
+}
+
+.settings-section {
+    position: relative;
+}
+
+.row-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle-switch label:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked+label {
+    background-color: #FF3B30;
+    /* Match the red in image */
+}
+
+.toggle-switch input:checked+label:before {
+    transform: translateX(24px);
+}
+
+/* Display Options */
+.display-options {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.display-option {
+    cursor: pointer;
+}
+
+.option-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.option-preview {
+    width: 200px;
+    height: 120px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.light-preview {
+    background: white;
+}
+
+.dark-preview {
+    background: #1a1b2e;
+    /* Dark blue/black */
+}
+
+.dark-preview .preview-text {
+    color: white;
+}
+
+.preview-line {
+    width: 80%;
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background: #FF3B30;
+    /* Red line */
+}
+
+.preview-text {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Selected State */
+.display-option.selected .option-preview {
+    border: 2px solid #FF3B30;
+}
+
+.check-circle {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 24px;
+    height: 24px;
+    background: #FF3B30;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border: 2px solid white;
+    display: none;
+}
+
+.display-option.selected .check-circle {
+    display: flex;
+}
+
+/* Privacy Section */
+.privacy-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.privacy-item:last-child {
+    margin-bottom: 0;
+}
+
+.privacy-label {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Horizone Logo.png" type="image/png">
+    <title>Admin Login - HORIZONE</title>
+    <link rel="stylesheet" href="./css/simple-style.css">
+    <link rel="stylesheet" href="./css/status-modal.css">
+    <style>
+        /* Admin specific overrides */
+        .content header {
+            color: #4A90E2;
+        }
+
+        .content form .field input:focus,
+        .content form .field input:valid {
+            border-color: #4A90E2;
+        }
+
+        .content input[type="submit"] {
+            background: #4A90E2;
+            border: 1px solid #4A90E2;
+        }
+
+        .content input[type="submit"]:hover {
+            background: #357ABD;
+        }
+
+        .return-home-link {
+            text-align: center;
+            margin-top: 15px;
+            display: block;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .return-home-link:hover {
+            color: #4A90E2;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="content">
+            <img src="Horizone Logo.png" alt="HORIZONE Logo" class="logo-img">
+            <header>Admin Portal</header>
+            <form method="post" action="#" id="adminLoginForm">
+                <div class="field">
+                    <input type="email" name="email" id="email" required placeholder="Admin Email">
+                </div>
+                <div class="field">
+                    <input type="password" name="password" id="password" class="pass-key" required
+                        placeholder="Password">
+                    <span class="show">SHOW</span>
+                </div>
+                <div class="field">
+                    <input type="submit" value="LOGIN">
+                </div>
+            </form>
+            <a href="index.html" class="return-home-link">Back to Website</a>
+        </div>
+    </div>
+
+    <!-- Admin Auth script should ideally be separate or handle admin role logic -->
+    <!-- We'll use a specific admin login script -->
+    <script src="./js/status-modal.js"></script>
+    <script src="./js/admin-login-script.js"></script>
+</body>
+
+</html>
